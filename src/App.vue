@@ -1,19 +1,12 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
-import NavBar from './components/NavBar.vue'
+import DefaultLayout from './layouts/DefaultLayout.vue'
 </script>
 
 <template>
-  <header>
-    <NavBar />
-  </header>
-
-  <RouterView />
+  <DefaultLayout>
+    <RouterView />
+  </DefaultLayout>
 </template>
 
-<style scoped>
-/* header {
-  line-height: 1.5;
-  max-height: 100vh;
-} */
-</style>
+<style scoped></style>
