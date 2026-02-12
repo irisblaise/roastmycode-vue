@@ -1,12 +1,6 @@
 <script setup lang="ts">
 import ShameScore from './ShameScore.vue'
-
-interface RoastResult {
-  roast: string | null
-  score: number | null
-  explanation?: string
-  error?: string
-}
+import type { RoastResult } from '@/types/roast'
 
 interface Props {
   result: RoastResult
