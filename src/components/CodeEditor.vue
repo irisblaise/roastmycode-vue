@@ -46,7 +46,7 @@ watch(code, () => {
 </script>
 
 <template>
-  <div class="space-y-4" @keydown="handleKeyDown">
+  <div class="gap-2.5 flex flex-col space-y-4" @keydown="handleKeyDown">
     <div
       class="bg-gray-900/95 backdrop-blur-sm rounded-xl border border-gray-800 overflow-hidden shadow-sm"
       :class="{ 'opacity-60 pointer-events-none': isLoading }"
