@@ -1,11 +1,11 @@
 import OpenAI from 'openai'
-import type { RoastResponse } from '../src/types/roast'
+import type { RoastApiResponse } from '../src/types/roast.js'
 
 export async function generateRoast(
   code: string,
   language: string = 'JavaScript',
   apiKey: string | undefined,
-): Promise<RoastResponse> {
+): Promise<RoastApiResponse> {
   if (!apiKey) {
     throw new Error('OPENAI_API_KEY is not configured')
   }
