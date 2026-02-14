@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import type { RoastRequest, RoastApiResponse } from '../src/types/roast'
-import { generateRoast } from '../lib/openai-service.ts'
+import { generateRoast } from '../lib/openai-service'
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
