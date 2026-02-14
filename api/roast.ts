@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import type { RoastRequest, RoastResponse } from '../src/types/roast'
+import type { RoastRequest, RoastApiResponse } from '../src/types/roast'
 import { generateRoast } from '../lib/openai-service.ts'
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -12,7 +12,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const { code, language = 'JavaScript' } = body
     const apiKey = process.env.OPENAI_API_KEY
 
-    const response: RoastResponse = await generateRoast(code, language, apiKey)
+    const response: RoastApiResponse = await generateRoast(code, language, apiKey)
     return res.status(200).json(response)
   } catch (error) {
     console.error('Error generating roast:', error)

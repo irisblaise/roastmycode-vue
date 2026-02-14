@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, watch, computed } from 'vue'
 import { Codemirror } from 'vue-codemirror'
 import { javascript } from '@codemirror/lang-javascript'
 import { oneDark } from '@codemirror/theme-one-dark'
@@ -23,7 +23,7 @@ const emit = defineEmits<{
 const code = ref(props.defaultValue)
 const error = ref<string | null>(null)
 
-const extensions = [javascript({ jsx: true })]
+const extensions = computed(() => [javascript({ jsx: true })])
 
 const handleSubmit = () => {
   if (!code.value.trim()) {

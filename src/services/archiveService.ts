@@ -1,5 +1,5 @@
 import type { ArchivedRoast } from '@/types/archive'
-import type { RoastResponse } from '@/types/roast'
+import type { RoastApiResponse } from '@/types/roast'
 
 const STORAGE_KEY = 'roastMyCode_archive'
 
@@ -15,7 +15,7 @@ class ArchiveService {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(archive))
   }
 
-  archiveRoast(code: string, roastResult: RoastResponse): void {
+  archiveRoast(code: string, roastResult: RoastApiResponse): void {
     const archive = this.getArchive()
     const newArchiveItem: ArchivedRoast = {
       ...roastResult,

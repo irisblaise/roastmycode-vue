@@ -15,9 +15,3 @@ export interface RoastApiResponse {
   score: number
   explanation?: string
 }
-
-export interface RoastResponse {
-  roast: string
-  score: number
-  explanation?: string
-}

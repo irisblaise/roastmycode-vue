@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import CodeEditor from '../components/CodeEditor.vue'
+import { ref, defineAsyncComponent } from 'vue'
 import RoastResults from '@/components/RoastResults.vue'
 import { roastCode } from '@/services/roastApi'
 import { archiveService } from '@/services/archiveService'
 import type { RoastResult } from '@/types/roast'
+
+const CodeEditor = defineAsyncComponent(() => import('../components/CodeEditor.vue'))
 
 const result = ref<RoastResult>({
   roast: null,

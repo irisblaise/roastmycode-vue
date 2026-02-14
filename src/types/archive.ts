@@ -1,6 +1,6 @@
-import type { RoastResponse } from './roast'
+import type { RoastApiResponse } from './roast'
 
-export interface ArchivedRoast extends RoastResponse {
+export interface ArchivedRoast extends RoastApiResponse {
   id: string
   code: string
   timestamp: string
