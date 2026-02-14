@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import type { ArchivedRoast } from '@/types/archive'
 import ShameScore from './ShameScore.vue'
 import { archiveService } from '@/services/archiveService'
@@ -14,8 +14,8 @@ const emit = defineEmits<{
 
 const showCode = ref(false)
 
-const formatDate = (timestamp: string) => {
-  const date = new Date(timestamp)
+const formattedDate = computed(() => {
+  const date = new Date(props.item.timestamp)
   return date.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
@@ -23,7 +23,7 @@ const formatDate = (timestamp: string) => {
     hour: '2-digit',
     minute: '2-digit',
   })
-}
+})
 
 const handleDelete = () => {
   if (confirm('Are you sure you want to delete this roast?')) {
@@ -41,7 +41,7 @@ const handleDelete = () => {
       <div class="flex-1">
         <div class="flex items-center gap-3 mb-2">
           <ShameScore v-if="item.score !== null" :score="item.score" />
-          <span class="text-sm text-gray-500">{{ formatDate(item.timestamp) }}</span>
+          <span class="text-sm text-gray-500">{{ formattedDate }}</span>
         </div>
       </div>
       <button
